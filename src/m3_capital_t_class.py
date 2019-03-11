@@ -207,8 +207,9 @@ class CapitalT(object):
         #     c. Compare the graphics window to the   simple_t.pdf   pictures.
         #        They should look exactly the same as each other.
         # ---------------------------------------------------------------------
-        self.h_rect.attach_to(window)
         self.v_rect.attach_to(window)
+        self.h_rect.attach_to(window)
+
 
     def set_colors(self, fill_color, outline_color):
         """
@@ -326,12 +327,12 @@ class CapitalT(object):
         # variables beyond  h_rect  and  v_rect, at any point of this exercise.
         #######################################################################
         x_center = (self.h_rect.corner_1.x + self.h_rect.corner_2.x) / 2
-        y_center = (self.h_rect.corner_1.y - self.h_rect.corner_2.y) / 2
+        y_center = (self.h_rect.corner_1.y + self.h_rect.corner_2.y) / 2
 
         center = rg.Point(x_center, y_center)
 
-        the_t = CapitalT(center, self.h_rect.corner_2.x - self.h_rect.corner_1.x,
-                         self.v_rect.corner_2.y - self.v_rect.corner_1.y, self.v_rect.corner_2.x - self.v_rect.corner_1.x)
+        the_t = CapitalT(center, self.v_rect.corner_2.y - self.v_rect.corner_1.y,
+                         self.h_rect.corner_2.x - self.h_rect.corner_1.x, self.v_rect.corner_2.x - self.v_rect.corner_1.x)
         the_t.v_rect.fill_color = self.v_rect.fill_color
         the_t.h_rect.fill_color = self.h_rect.fill_color
         the_t.v_rect.outline_color = self.v_rect.outline_color
